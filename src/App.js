@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import FormFieldMetadata from './components/FormFieldMetadata';
 
@@ -33,18 +33,20 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h2>
+    <div className="App" class="container mx-auto px-4">
+      <h1 className="text-3xl font-bold">
         Create Form Metadata
-      </h2>
-      <div>
+      </h1>
+      <div className="m-8">
         <input onChange={(e) => setName(e.target.value)} name="formName" placeholder='Form Name' />
         <input onChange={(e) => setDesc(e.target.value)} name="description" placeholder='Description' />
       </div>
       <div>
         <FormFieldMetadata fields={fields} setfields={setfields} />
       </div>
-      <button onClick={createForm}>Create</button>
+      <button type='button' onClick={createForm} class="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:shadow-md">
+        Create
+      </button>
     </div>
   );
 }

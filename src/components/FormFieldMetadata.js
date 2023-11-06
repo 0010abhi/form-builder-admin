@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FieldTypeDropdown from './FieldTypeDropdown';
 
-export default function FormFieldMetadata({fields, setfields}) {
+export default function FormFieldMetadata({ fields, setfields }) {
     function addFieldsRow() {
         const fieldsArray = [...fields];
         fieldsArray.push({
@@ -19,7 +19,7 @@ export default function FormFieldMetadata({fields, setfields}) {
         setfields(fieldsArray);
     }
 
-    return <table>
+    return <table class="table-auto">
         <tr>
             <th>Field Type</th>
             <th>Name</th>
@@ -31,17 +31,17 @@ export default function FormFieldMetadata({fields, setfields}) {
             fields.map((field, index) => (
                 <tr key={index}>
                     <td><FieldTypeDropdown /></td>
-                    <td><input 
-                        onChange={(e) => setTableColumnData(e.target.value, index, 'name')} 
-                        name={`field-${index}-name`} 
+                    <td><input
+                        onChange={(e) => setTableColumnData(e.target.value, index, 'name')}
+                        name={`field-${index}-name`}
                         value={field.name} /></td>
-                    <td><input 
+                    <td><input
                         onChange={(e) => setTableColumnData(e.target.value, index, 'label')}
-                        name={`field-${index}-label`} 
+                        name={`field-${index}-label`}
                         value={field.label} /></td>
                     <td><input
-                    onChange={(e) => setTableColumnData(e.target.value, index, 'placeholder')}
-                        name={`field-${index}-placeholder`} 
+                        onChange={(e) => setTableColumnData(e.target.value, index, 'placeholder')}
+                        name={`field-${index}-placeholder`}
                         value={field.placeholder} /></td>
                     <td>
                         <button onClick={addFieldsRow}>Add</button>
